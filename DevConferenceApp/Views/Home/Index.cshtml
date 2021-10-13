@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@*Bootstrap nam je automatski uključen pa ga možemo koristiti za stiliziranje*@
+<div class="text-center">
+    <h1 class="display-4">Developerska konferencija</h1>
+    <img src="~/images/io-social-banner.png"/>
+</div>
+
+<div>
+    <ul>
+        <li>Naša super konferencija se održava i ove godine</li>
+        <li>Pozivamo sve developere da se pridruže</li>
+        <li>Nemojte propustiti novosti iz svijeta IT-a</li>
+    </ul>
+</div>
+
+@*Na klik buttona idemo na action RegisterForm za registraciju*@
+<a class="btn btn-primary" asp-action="RegisterForm">Prijavite se!</a>

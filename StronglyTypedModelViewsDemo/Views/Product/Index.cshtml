@@ -1,0 +1,83 @@
+﻿@*Model je lista objekata tipa Product*@
+@model IEnumerable<StronglyTypedModelViewsDemo.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    @*Za unos novog zapisa*@
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    @*Zaglavlje s nazivima svojstava iz klase Product*@
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitsInStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discontinued)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LaunchDate)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @*Petlja s kojom generiramo retke za sve proizvode iz naše liste*@
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitsInStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discontinued)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LaunchDate)
+            </td>
+            <td>
+                @*Ovo će u svakom retku dodati buttone za opcije Uređivanja, prikaza detalja i brisanja proizvoda*@
+                @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,52 @@
+﻿
+@*model je lista objekata*@
+@model IEnumerable<DevConferenceApp.Models.WebinarInvite>
+
+@{
+    ViewData["Title"] = "ListResponse";
+}
+
+<h1>Lista sudionika</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*DisplayNameFor - ispisat će naziv svojstva iz klase*@
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WillJoin)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    
+    @*Prikazujemo sve elemente iz naše liste*@
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @*DisplayFor ispisuje vrijednost*@
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WillJoin)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

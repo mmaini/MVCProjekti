@@ -1,0 +1,27 @@
+﻿@model WebinarInvite
+@{
+    ViewData["Title"] = "ThankYou";
+}
+
+
+@*ovisno o tome da li je netko potvrdio dolazak prikazujemo odgovarajuću poruku*@
+@if (Model.WillJoin == true)
+{
+<div class="text-center">
+    <img src="~/images/io-social-banner.png" />
+    <h1>Hvala na prijavi</h1>
+
+    Čestitamo, @Model.Name,
+    <p>Uspješno ste se registrirali za konferenciju.</p>
+    <p>Uskoro ćete primiti mail sa svim potrebnim informacijama.</p>
+    <p>Veselimo se zajedničkom druženju.</p>
+
+</div>
+}
+else
+{
+    <h3>Žao nam je što ove godine nećete prisustvovati konferenciji</h3>
+}
+
+<div>Kliknite <a asp-action="ListResponse">ovdje</a> kako biste vidjeli popis sudionika.</div>
+

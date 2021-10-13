@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h1>@ViewData["Code"]</h1>
+<h1>@ViewData["Name"]</h1>
+
+<h1>@ViewBag.Message</h1>
+@*Iako smo dodali u ViewBag možemo tome pristupiti i kroz ViewData*@
+<h1>@ViewData["Message"]</h1>
+
+
+@*Nakon što se pristupi vrijednosti ona će biti označena za brisanje ako pristupimo na ovaj način
+    <h1>@TempData["Country"]</h1>
+    Ako želimo da podatak i dalje bude dostupan, onda koristimo Peek i Keep metode koje ne označavaju podatak za brisanje
+*@
+
+<h1>Peek Country</h1>
+@{
+    if (TempData.Peek("Country") != null)
+    {
+        <h3>Država je: @TempData.Peek("Country")</h3>
+    }
+}
+
+<h1>Keep Country</h1>
+@{
+    if (TempData["Country"] != null)
+    {
+        @*Ovo će ju označiti za brisanje *@
+        <h3>Država je: @TempData["Country"] </h3>
+    }
+    @*S ovim kažemo da želimo zadržati vrijednost *@
+    TempData.Keep("Country");
+}
+
+
+
+@*nakon što pročitamo podatke iz ViewData/ViewBag podaci nestanu - kad kliknemo na button i ponovno učitamo stranicu neće više biti ispisa*@
+<form asp-controller="StateDemo" asp-action="Index" method="post">
+    <input type="submit" />
+</form>

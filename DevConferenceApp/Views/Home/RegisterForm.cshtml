@@ -1,0 +1,37 @@
+﻿@model WebinarInvite
+@{
+    ViewData["Title"] = "RegisterForm";
+}
+
+<h1>RegisterForm</h1>
+
+<h5 class="bg-primary text-white text-center m-2 p-2">Registracijska forma</h5>
+
+<form asp-action="RegisterForm" method="post" class="m-2">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        @*Labela će se prikazati za input (povezano preko asp-for)*@
+        <label asp-for="Name">Vaše ime</label>
+        <input asp-for="Name" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Vaš email</label>
+        <input asp-for="Email" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone">Vaš telefon</label>
+        <input asp-for="Phone" class="form-control"/>
+    </div>
+    
+    <div class="form-group">
+        <label>Da li ćete prisustvovati?</label>
+        <select asp-for="WillJoin" class="form-control">
+            <option value="">Odaberite opciju</option>
+            <option value="true">Da</option>
+            <option value="false">Ne</option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Pošalji prijavu</button>
+
+</form>

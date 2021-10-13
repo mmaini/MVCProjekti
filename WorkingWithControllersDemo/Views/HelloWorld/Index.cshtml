@@ -1,0 +1,28 @@
+﻿@*Naš view prima model tipa Author*@
+@model Author
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@*Čitanje iz ViewBag objekta - paziti da se koriste ista imena svojstava*@
+<h1>@ViewBag.Greeting</h1>
+<h1>@ViewBag.CompanyName</h1>
+<h1>@ViewBag.Country</h1>
+
+
+<h1>Detalji o autoru</h1>
+@*Tu mora biti veliko M, dok na vrhu stranice ide malo m za model*@
+<h2>@Model.Name</h2>
+<h2>@Model.Country</h2>
+
+
+@*Kad želimo napraviti neki submit na stranici, koristimo form te navodimo što se treba pozvati na submit*@
+<form asp-controller="HelloWorld" asp-action="GoToUrl" method="post">
+    <label for="url">URL</label>
+    @*name je jednak imenu parametra kojeg metoda prima*@
+    <input type="text" name="url"/>
+    <input type="submit"/>
+
+</form>
