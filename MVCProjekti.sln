@@ -3,31 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntroductionToAspNetCoreMvc", "IntroductionToAspNetCoreMvc\IntroductionToAspNetCoreMvc.csproj", "{27F85FA3-AC25-4D6F-A33B-E046C4DC616E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntroductionToAspNetCoreMvc", "IntroductionToAspNetCoreMvc\IntroductionToAspNetCoreMvc.csproj", "{27F85FA3-AC25-4D6F-A33B-E046C4DC616E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstMVCCoreWebApp", "FirstMVCCoreWebApp\FirstMVCCoreWebApp.csproj", "{6E797C54-3D30-45FA-A6FE-6072756751A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstMVCCoreWebApp", "FirstMVCCoreWebApp\FirstMVCCoreWebApp.csproj", "{6E797C54-3D30-45FA-A6FE-6072756751A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithControllersDemo", "WorkingWithControllersDemo\WorkingWithControllersDemo.csproj", "{CED54DEA-9C60-45D8-A7B9-F0B4A4681C9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithControllersDemo", "WorkingWithControllersDemo\WorkingWithControllersDemo.csproj", "{CED54DEA-9C60-45D8-A7B9-F0B4A4681C9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReturnTypesOfActionsDemo", "ReturnTypesOfActionsDemo\ReturnTypesOfActionsDemo.csproj", "{8C7D9FEE-7255-4B06-9434-9D0A2981132B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReturnTypesOfActionsDemo", "ReturnTypesOfActionsDemo\ReturnTypesOfActionsDemo.csproj", "{8C7D9FEE-7255-4B06-9434-9D0A2981132B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevConferenceApp", "DevConferenceApp\DevConferenceApp.csproj", "{14BA8E54-D278-4C4F-AA28-00436913922C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevConferenceApp", "DevConferenceApp\DevConferenceApp.csproj", "{14BA8E54-D278-4C4F-AA28-00436913922C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateManagementDemo", "StateManagementDemo\StateManagementDemo.csproj", "{99E24679-D1E4-4708-A0A8-A3A00F420816}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateManagementDemo", "StateManagementDemo\StateManagementDemo.csproj", "{99E24679-D1E4-4708-A0A8-A3A00F420816}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithCookiesDemo", "WorkingWithCookiesDemo\WorkingWithCookiesDemo.csproj", "{F778B966-9FB6-4FF4-9BDE-8522335505DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithCookiesDemo", "WorkingWithCookiesDemo\WorkingWithCookiesDemo.csproj", "{F778B966-9FB6-4FF4-9BDE-8522335505DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StronglyTypedModelViewsDemo", "StronglyTypedModelViewsDemo\StronglyTypedModelViewsDemo.csproj", "{9C531398-9C7D-44EC-B6D5-354CF93760F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StronglyTypedModelViewsDemo", "StronglyTypedModelViewsDemo\StronglyTypedModelViewsDemo.csproj", "{9C531398-9C7D-44EC-B6D5-354CF93760F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsTagHelperDemo", "FormsTagHelperDemo\FormsTagHelperDemo.csproj", "{4564A483-734E-4BFC-9C4D-F313739DAA8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormsTagHelperDemo", "FormsTagHelperDemo\FormsTagHelperDemo.csproj", "{4564A483-734E-4BFC-9C4D-F313739DAA8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationsDemo", "ValidationsDemo\ValidationsDemo.csproj", "{D9FF0286-0014-4E1E-9491-19A60A14E6EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationsDemo", "ValidationsDemo\ValidationsDemo.csproj", "{D9FF0286-0014-4E1E-9491-19A60A14E6EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependenyInjectionDemo", "DependenyInjectionDemo\DependenyInjectionDemo.csproj", "{7C472A89-4E3E-46A7-9E70-D2973A4F70E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependenyInjectionDemo", "DependenyInjectionDemo\DependenyInjectionDemo.csproj", "{7C472A89-4E3E-46A7-9E70-D2973A4F70E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingServiceDemo", "LoggingServiceDemo\LoggingServiceDemo.csproj", "{4D49D9E6-0473-4501-8444-B3982D22CF39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingServiceDemo", "LoggingServiceDemo\LoggingServiceDemo.csproj", "{4D49D9E6-0473-4501-8444-B3982D22CF39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagerApp", "EmployeeManagerApp\EmployeeManagerApp.csproj", "{F200AE35-AE05-4E54-8DC1-B8AF3A07BCD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeApp", "EmployeeApp\EmployeeApp.csproj", "{3C452402-D292-4818-BD91-ED7657DC3294}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityCoreDemo", "IdentityCoreDemo\IdentityCoreDemo.csproj", "{743404B3-280E-4262-9855-12B2A21DEDFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,10 +85,14 @@ Global
 		{4D49D9E6-0473-4501-8444-B3982D22CF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D49D9E6-0473-4501-8444-B3982D22CF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D49D9E6-0473-4501-8444-B3982D22CF39}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F200AE35-AE05-4E54-8DC1-B8AF3A07BCD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F200AE35-AE05-4E54-8DC1-B8AF3A07BCD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F200AE35-AE05-4E54-8DC1-B8AF3A07BCD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F200AE35-AE05-4E54-8DC1-B8AF3A07BCD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C452402-D292-4818-BD91-ED7657DC3294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C452402-D292-4818-BD91-ED7657DC3294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C452402-D292-4818-BD91-ED7657DC3294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C452402-D292-4818-BD91-ED7657DC3294}.Release|Any CPU.Build.0 = Release|Any CPU
+		{743404B3-280E-4262-9855-12B2A21DEDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{743404B3-280E-4262-9855-12B2A21DEDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{743404B3-280E-4262-9855-12B2A21DEDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{743404B3-280E-4262-9855-12B2A21DEDFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
