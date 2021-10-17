@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using MoviesApp.Models;
 
 namespace MoviesApp.Data.Cart
@@ -32,7 +34,7 @@ namespace MoviesApp.Data.Cart
                 shoppingCartItem = new ShoppingCartItem()
                 {
                     ShoppingCartId =  ShoppingCartId,
-                    Movie = movie,
+                    MovieId = movie.Id,
                     Amount = 1
                 };
                 _context.ShoppingCartItems.Add(shoppingCartItem);
@@ -80,6 +82,24 @@ namespace MoviesApp.Data.Cart
                 return  _context.ShoppingCartItems.Where(x => x.ShoppingCartId == ShoppingCartId)
                     .Select(x => x.Movie.Price * x.Amount).Sum();
             
+            }
+
+            public static ShoppingCart GetShoppingCart(IServiceProvider services)
+            {
+                ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
+                var context = services.GetService<AppDbContext>();
+                string cartId = session.GetString("CartId") ?? Guid.NewGuid().ToString();
+                session.SetString("CartId", cartId);
+
+                return new ShoppingCart(context) {ShoppingCartId = cartId};
+            }
+
+
+            public void ClearShoppingCart()
+            {
+                var items = _context.ShoppingCartItems.Where(x => x.ShoppingCartId == ShoppingCartId).ToList();
+                _context.ShoppingCartItems.RemoveRange(items);
+
             }
 
 

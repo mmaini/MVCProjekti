@@ -55,7 +55,7 @@
                                     <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
                                         <i class="bi bi-eye-fill"></i> Detalji
                                     </a>
-                                    <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id"><i class="bi bi-cart-plus"></i> Dodaj u košaricu (Cijena @item.Price.ToString("c"))</a>
+                                    <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddToShoppingCart" asp-route-id="@item.Id"><i class="bi bi-cart-plus"></i> Dodaj u košaricu (Cijena @item.Price.ToString("c"))</a>
                                 </p>
                             </div>
                         </div>
