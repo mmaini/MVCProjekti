@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MoviesApp.Data.Cart;
@@ -14,6 +15,7 @@ namespace MoviesApp.Controllers
         private readonly IUnitOfWork _uow;
         private readonly ShoppingCart _shoppingCart;
 
+
         public OrdersController(IUnitOfWork uow, ShoppingCart shoppingCart)
         {
             _uow = uow;
@@ -22,8 +24,9 @@ namespace MoviesApp.Controllers
 
         public IActionResult Index()
         {
-            string userId = "";
-            var orders = _uow.Orders.GetOrdersByUserId(userId);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userRole = User.FindFirstValue(ClaimTypes.Role);
+            var orders = _uow.Orders.GetOrdersByUserIdAndRole(userId, userRole);
             return View(orders);
 
         }
@@ -64,8 +67,8 @@ namespace MoviesApp.Controllers
         public IActionResult CompleteOrder()
         {
             var items = _shoppingCart.GetShoppingCartItems();
-            string userId = "";
-            string userEmail = "";
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userEmail = User.FindFirstValue(ClaimTypes.Email);
 
             _uow.Orders.StoreOrder(items, userId, userEmail);
             _shoppingCart.ClearShoppingCart();

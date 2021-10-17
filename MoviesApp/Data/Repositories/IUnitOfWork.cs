@@ -14,6 +14,7 @@ namespace MoviesApp.Data.Repositories
         IGenericRepository<Producer> Producers { get; }
         IGenericRepository<Cinema> Cinemas { get; }
         IOrderRepository Orders { get; }
+        IGenericRepository<ApplicationUser> ApplicationUsers { get; }
 
         void SaveChanges();
     }

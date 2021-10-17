@@ -1,4 +1,5 @@
-﻿@model List<Order>
+﻿@using MoviesApp.Data.Static
+@model List<Order>
 
 @{
     ViewData["Title"] = "Popis narudžbi";
@@ -15,7 +16,11 @@
                 <th>Id narudžbe</th>
                 <th>Stavke</th>
                 <th>Ukupno</th>
-                <th>Korisnik</th>
+                @if (User.Identity.IsAuthenticated && User.IsInRole(UserRole.Admin))
+                {
+                    <th>Korisnik</th>
+                }
+             
             </tr>
             </thead>
             <tbody>
@@ -36,9 +41,13 @@
                         </ul>
                     </td>
                     <td class="align-middle">
-                        @order.OrderItems.Select(x=> x.Price * x.Amount).Sum().ToString("c")
+                        @order.OrderItems.Select(x => x.Price * x.Amount).Sum().ToString("c")
                     </td>
-                    <td class="align-middle">n/a</td>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole(UserRole.Admin))
+                    {
+                        <td class="align-middle">@order.User.FullName</td>
+                    }
+
                 </tr>
             }
             </tbody>

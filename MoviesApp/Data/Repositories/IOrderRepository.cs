@@ -9,7 +9,7 @@ namespace MoviesApp.Data.Repositories
     public interface IOrderRepository : IGenericRepository<Order>
     {
         void StoreOrder(List<ShoppingCartItem> items, string userId, string userEmail);
-        List<Order> GetOrdersByUserId(string userId);
+        List<Order> GetOrdersByUserIdAndRole(string userId, string userRole);
 
     }
 }

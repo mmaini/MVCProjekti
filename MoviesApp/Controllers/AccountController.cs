@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MoviesApp.Data;
+using MoviesApp.Data.Repositories;
 using MoviesApp.Data.Static;
 using MoviesApp.Data.ViewModels;
 using MoviesApp.Models;
@@ -16,12 +17,14 @@ namespace MoviesApp.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly AppDbContext _context;
+        private readonly IUnitOfWork _uow;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, AppDbContext context)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, AppDbContext context, IUnitOfWork uow)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _context = context;
+            _uow = uow;
         }
 
         public IActionResult Login()
@@ -100,11 +103,22 @@ namespace MoviesApp.Controllers
                 return View(registerVm);
             }
 
-    
-
-
         }
 
+        [HttpPost]
+        public async Task<IActionResult>  Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Movies");
+        }
+
+
+        public IActionResult Users()
+        {
+            var users = _uow.ApplicationUsers.GetAll();
+            return View(users);
+
+        }
 
 
     }

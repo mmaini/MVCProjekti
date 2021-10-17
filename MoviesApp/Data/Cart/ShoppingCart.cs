@@ -99,6 +99,7 @@ namespace MoviesApp.Data.Cart
             {
                 var items = _context.ShoppingCartItems.Where(x => x.ShoppingCartId == ShoppingCartId).ToList();
                 _context.ShoppingCartItems.RemoveRange(items);
+                _context.SaveChanges();
 
             }
 

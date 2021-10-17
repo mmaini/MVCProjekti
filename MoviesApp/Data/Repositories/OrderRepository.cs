@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Routing.Template;
 using Microsoft.EntityFrameworkCore;
+using MoviesApp.Data.Static;
 using MoviesApp.Models;
 
 namespace MoviesApp.Data.Repositories
@@ -34,11 +35,18 @@ namespace MoviesApp.Data.Repositories
             _context.Orders.Add(order);
         }
 
-        public List<Order> GetOrdersByUserId(string userId)
+        public List<Order> GetOrdersByUserIdAndRole(string userId, string userRole)
         {
             var orders = _context
                 .Orders.Include(x => x.OrderItems).ThenInclude(x => x.Movie)
-                .Where(x => x.UserId == userId).ToList();
+                .Include(x=>x.User)
+                .ToList();
+
+            //ako je admin može vidjeti sve, u suprotnom dohvaćamo narudžbe određenog korisnika
+            if (userRole != UserRole.Admin)
+            {
+                orders = orders.Where(x => x.UserId == userId).ToList();
+            }
             return orders;
         }
     }

@@ -33,13 +33,14 @@ namespace MoviesApp.Data.Repositories
         private IGenericRepository<Producer> _producers;
         private IGenericRepository<Cinema> _cinemas;
         private IOrderRepository _orders;
-
+        private IGenericRepository<ApplicationUser> _users;
 
         public IGenericRepository<Actor> Actors => _actors ??= new GenericRepository<Actor>(_context);
         public IMovieRepository Movies => _movies ??= new MovieRepository(_context);
         public IGenericRepository<Producer> Producers => _producers ??= new GenericRepository<Producer>(_context);
         public IGenericRepository<Cinema> Cinemas => _cinemas ??= new GenericRepository<Cinema>(_context);
         public IOrderRepository Orders => _orders ??= new OrderRepository(_context);
+        public IGenericRepository<ApplicationUser> ApplicationUsers => _users ??= new GenericRepository<ApplicationUser>(_context);
 
 
 
