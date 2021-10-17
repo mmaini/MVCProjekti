@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using MoviesApp.Data;
 using MoviesApp.Data.Cart;
 using MoviesApp.Data.Repositories;
+using MoviesApp.Models;
 
 namespace MoviesApp
 {
@@ -30,7 +33,16 @@ namespace MoviesApp
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
 
+            //Authetication and Authorization
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddMemoryCache();
             services.AddSession();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });
+
+
             services.AddControllersWithViews();
         }
 
@@ -53,7 +65,10 @@ namespace MoviesApp
             app.UseRouting();
             app.UseSession();
 
+            //Authetication and Authorization
+            app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
@@ -63,6 +78,7 @@ namespace MoviesApp
             });
 
             AppDbInitializer.Seed(app);
+            AppDbInitializer.SeedUsersAndRoles(app).Wait();
         }
     }
 }

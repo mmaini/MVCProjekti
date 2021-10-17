@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using MoviesApp.Data.Static;
 using MoviesApp.Models;
 
 namespace MoviesApp.Data
@@ -306,6 +308,57 @@ namespace MoviesApp.Data
                 }
             }
         }
+
+        public static async Task SeedUsersAndRoles(IApplicationBuilder builder)
+        {
+            using (var serviceScope = builder.ApplicationServices.CreateScope())
+            {
+
+                //Roles
+                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                if (!await roleManager.RoleExistsAsync(UserRole.Admin))
+                    await roleManager.CreateAsync(new IdentityRole(UserRole.Admin));
+
+                if (!await roleManager.RoleExistsAsync(UserRole.User))
+                    await roleManager.CreateAsync(new IdentityRole(UserRole.User));
+
+
+                //Users
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                var adminUser = await userManager.FindByEmailAsync("admin@admin.com");
+                if (adminUser == null)
+                {
+                    var newAdminUser = new ApplicationUser()
+                    {
+                        FullName = "Admin Admin",
+                        UserName = "admin",
+                        Email = "admin@admin.com",
+                        EmailConfirmed = true
+
+                    };
+                    await userManager.CreateAsync(newAdminUser, "P@ssword123");
+                    await userManager.AddToRoleAsync(newAdminUser, UserRole.Admin);
+                }
+
+
+                var appUser = await userManager.FindByEmailAsync("user@user.com");
+                if (appUser == null)
+                {
+                    var newAppUser = new ApplicationUser()
+                    {
+                        FullName = "User User",
+                        UserName = "user",
+                        Email = "user@user.com",
+                        EmailConfirmed = true
+
+                    };
+                    await userManager.CreateAsync(newAppUser, "P@ssword123");
+                    await userManager.AddToRoleAsync(newAppUser, UserRole.User);
+                }
+
+            }
         }
+
+    }
     }
 
