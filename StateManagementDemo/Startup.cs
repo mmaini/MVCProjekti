@@ -23,7 +23,10 @@ namespace StateManagementDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            //dodajmo AddSessionStateTempDataProvider kada koristimo TempData koji se temelji na session
+            services.AddControllersWithViews().AddSessionStateTempDataProvider();
+            //dodajemo AddSession za TempData Session based
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +49,8 @@ namespace StateManagementDemo
 
             app.UseAuthorization();
 
+            //dodajemo UseSession za TempData Session based
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

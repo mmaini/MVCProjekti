@@ -1,0 +1,22 @@
+﻿@model User
+
+
+@*Vrijednost id-a neće biti vidljiva na GUI-ju*@
+@Html.HiddenFor(model => model.Id)
+
+<div>
+    @Html.DisplayNameFor(model => model.Name)
+    @Html.DisplayFor(model => model.Name)
+</div>
+<div>
+    @Html.DisplayNameFor(model => model.Age)
+    @Html.DisplayFor(model => model.Age)
+</div>
+
+
+
+@*kada kliknemo na button id će biti proslijeđen metodi iako nije nigdje na stranici prikazan*@
+<form asp-action="SetHiddenFieldValue">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Klikni" class="btn btn-danger" /> 
+</form>

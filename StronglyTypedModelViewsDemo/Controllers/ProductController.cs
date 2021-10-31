@@ -48,7 +48,7 @@ namespace StronglyTypedModelViewsDemo.Controllers
             },
         };
 
-
+        //https://localhost:44319/product/index
         public IActionResult Index()
         {
             return View(_products);

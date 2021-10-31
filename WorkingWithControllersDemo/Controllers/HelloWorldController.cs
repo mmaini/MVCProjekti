@@ -20,6 +20,7 @@ namespace WorkingWithControllersDemo.Controllers
             ViewBag.CompanyName = "Vsite";
             ViewBag.Country = "Hrvatska";
 
+            //kreiranje modela i prosljeđivanje view-u
             Author author = new Author();
             author.Name = "Tolstoj";
             author.Country = "Rusija";

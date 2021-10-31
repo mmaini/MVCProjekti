@@ -42,6 +42,7 @@ namespace ReturnTypesOfActionsDemo.Controllers
         }
 
 
+        //https://localhost:44329/home/GreetUser
         public ContentResult GreetUser()
         {
             //vraćamo obični string koji će se prikazati u browseru
@@ -65,6 +66,7 @@ namespace ReturnTypesOfActionsDemo.Controllers
 
 
         #region Redirect
+        //https://localhost:44329/home/GoToUrl
         public RedirectResult GoToUrl()
         {
             //Status code: 302
@@ -72,6 +74,7 @@ namespace ReturnTypesOfActionsDemo.Controllers
             return Redirect("http://www.google.com");
         }
 
+        //https://localhost:44329/home/GoToUrlPermanently
         public RedirectResult GoToUrlPermanently()
         {
             //Status code: 301
@@ -81,6 +84,7 @@ namespace ReturnTypesOfActionsDemo.Controllers
 
 
         //preusmjerava na neku drugu metodu, u ovom slučaju WishUser, i prosljeđuje parametar je metoda WishUser prima parametar message
+        //https://localhost:44329/home/GoToContactsAction
         public RedirectToActionResult GoToContactsAction()
         {
             return RedirectToAction("WishUser", new {message = "Redirect iz druge metode"});
@@ -90,12 +94,14 @@ namespace ReturnTypesOfActionsDemo.Controllers
 
 
         //vratit će neku datoteku za download kao odgovor, u ovom slučaju file kojeg imamo u css folderu
+        //https://localhost:44329/home/DownloadFile
         public FileResult DownloadFile()
         {
             return File("/css/site.css", "text/plain", "newsite.css");
         }
 
         //vraća odgovor kao Json ({"productCode":1,"name":"Bajadera","cost":5})
+        //https://localhost:44329/home/ShowNewProducts
         public JsonResult ShowNewProducts()
         {
             Product prod = new Product();
@@ -105,12 +111,14 @@ namespace ReturnTypesOfActionsDemo.Controllers
             return Json(prod);
         }
 
+        //https://localhost:44329/home/EmptyResultDemo
         public EmptyResult EmptyResultDemo()
         {
             //Status code: 200 (Ok)
             return new EmptyResult();
         }
 
+     
         public NoContentResult NoContentResultDemo()
         {
             //Status code: 204
@@ -120,11 +128,13 @@ namespace ReturnTypesOfActionsDemo.Controllers
 
         #region BadRequest
         //vratit će 400 i u browseru će se prikazati standardni prikaz za error 400
+        //https://localhost:44329/home/BadRequestResultDemo
         public BadRequestResult BadRequestResultDemo()
         {
             return BadRequest();
         }
 
+        //https://localhost:44329/home/ReturnBadRequest
         //vratit će u ovom slučaju 400 i u browseru će se prikazati standardni prikaz za error 400
         //možemo vratiti bilo koji StatusCode na ovaj način, ovisno o potrebama 
         public StatusCodeResult ReturnBadRequest()
@@ -134,6 +144,7 @@ namespace ReturnTypesOfActionsDemo.Controllers
 
 
         //u browseru će prikazati grešku koju smo proslijedili
+        //https://localhost:44329/home/BadRequestObjectResultDemo
         public BadRequestObjectResult BadRequestObjectResultDemo()
         {
             var modelState= new ModelStateDictionary();
@@ -149,12 +160,14 @@ namespace ReturnTypesOfActionsDemo.Controllers
 
         #region Unauthorized
         //dobijemo stranicu s greškom 401
+        //https://localhost:44329/home/UnauthorizedResultDemo
         public UnauthorizedResult UnauthorizedResultDemo()
         {
 
             return Unauthorized();
         }
 
+        //https://localhost:44329/home/UnauthorizedObjectResultDemo
         public UnauthorizedObjectResult UnauthorizedObjectResultDemo()
         {
             var modelState = new ModelStateDictionary();
@@ -169,6 +182,7 @@ namespace ReturnTypesOfActionsDemo.Controllers
 
 
         //404 status code
+        //https://localhost:44329/home/NotFoundDemo
         public NotFoundResult NotFoundDemo()
         {
             return NotFound();
@@ -176,6 +190,7 @@ namespace ReturnTypesOfActionsDemo.Controllers
 
 
         //Status code 200
+        //https://localhost:44329/home/ReturnOk
         public OkObjectResult ReturnOk()
         {
             return new OkObjectResult(new {Message = "Ok"});
