@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MoviesApp.Data.Cart;
 using MoviesApp.Data.Repositories;
+using MoviesApp.Data.Static;
 using MoviesApp.Data.ViewModels;
 
 namespace MoviesApp.Controllers
 {
+    [Authorize(Roles = UserRole.Admin)]
     public class OrdersController : Controller
     {
         private readonly IUnitOfWork _uow;

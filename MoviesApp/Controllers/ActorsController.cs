@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MoviesApp.Data;
 using MoviesApp.Data.Repositories;
+using MoviesApp.Data.Static;
 using MoviesApp.Models;
 
 namespace MoviesApp.Controllers
 {
+    [Authorize(Roles = UserRole.Admin)] //ukoliko želimo pristupiti akcijama moramo biti autorizirani
     public class ActorsController : Controller
     {
         private readonly IUnitOfWork _uow;
@@ -19,6 +22,7 @@ namespace MoviesApp.Controllers
         }
 
 
+        [AllowAnonymous] //dopuštamo svima da pristupe
         public IActionResult Index()
         {
             var data = _uow.Actors.GetAll();
@@ -44,6 +48,7 @@ namespace MoviesApp.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous] //dopuštamo svima da pristupe
         public IActionResult Details(int id)
         {
             var actorDetails = _uow.Actors.GetById(id);
