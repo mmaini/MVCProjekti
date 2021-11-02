@@ -1,0 +1,50 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "Pregled proizvoda";
+}
+
+<h1>Pregled proizvoda</h1>
+<br/>
+
+<div class="row">
+    <div class="col-sm-2">
+        <div class="list-group">
+            @*s active postavljamo da se označi kategorija*@
+            <a asp-controller="Product" asp-action="List" asp-route-id="All" class="list-group-item
+            @(ViewBag.SelectedCategoryName=="All" ? "active": "")">
+                Sve kategorije
+            </a>
+
+            @foreach (var category in ViewBag.AllCategories)
+            {
+                <a asp-controller="Product" asp-action="List" asp-route-id="@category.Name" class="list-group-item
+                   @(ViewBag.SelectedCategoryName==@category.Name ? "active": "") ">@category.Name</a>
+            }
+        </div>
+    </div>
+
+    <div class="col-sm-10">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Naziv</th>
+                    <th>Cijena</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price.ToString("c")</td>
+                    <td><a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id" asp-route-slug="@product.Slug">Detalji</a></td>
+                    <td><a asp-controller="Cart" asp-action="Add" asp-route-id="@product.Slug">Dodaj u košaricu</a></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary">Home</a>

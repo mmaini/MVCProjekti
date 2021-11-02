@@ -1,0 +1,19 @@
+﻿@{ 
+    ViewBag.Title = "Home";
+}
+
+
+<h1>Home</h1>
+<div class="list-group">
+    @*asp-route-slugLink - to je vrijednost koju ćemo proslijediti kod poziva Details action*@
+    <a asp-controller="Product" asp-action="Details" asp-route-slugLink="Proizvod-mjeseca">
+        Proizvod mjeseca
+    </a>
+    <a asp-controller="Product" asp-action="List">
+        Pregled proizvoda
+    </a>
+
+    <a asp-controller="Home" asp-action="About">
+        O nama
+    </a>
+</div>

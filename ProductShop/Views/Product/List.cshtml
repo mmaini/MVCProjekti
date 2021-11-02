@@ -1,0 +1,26 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "Pregled proizvoda";
+}
+
+<h1>Pregled proizvoda</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Cijena</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in @Model)
+            {
+        <tr>
+            <td>@item.Name</td>
+            <td>@(item.Price.ToString("c"))</td>
+            <td><a asp-controller="Product" asp-action="Details" asp-route-slugLink="@item.Slug">Detalji</a></td>
+        </tr>
+            }
+    </tbody>
+</table> 
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary">Home</a>
