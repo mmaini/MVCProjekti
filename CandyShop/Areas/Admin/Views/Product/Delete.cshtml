@@ -1,0 +1,15 @@
+﻿@model Product
+@{
+    ViewBag.Title = "Brisanje proizvoda";
+}
+
+<h1>Potvrda brisanja</h1>
+<h3>Da li ste sigurni da želite obrisati @Model.Name proizvod?</h3>
+
+
+<form asp-controller="Product" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-primary">Brisanje</button>
+    <a asp-controller="Product" asp-action="List">Otkaži</a>
+</form>

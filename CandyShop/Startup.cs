@@ -55,7 +55,7 @@ namespace CandyShop
                 endpoints.MapAreaControllerRoute(
                     name: "admin",
                     areaName:"Admin",
-                    pattern: "{admin}/{controller=Home}/{action=Index}/{id?}");
+                    pattern: "admin/{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",

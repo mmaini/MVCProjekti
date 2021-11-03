@@ -1,1 +1,15 @@
-﻿
+﻿@model Category
+@{ 
+    ViewBag.Title = "Brisanje kategorije";
+}
+
+<h1>Potvrda brisanja</h1>
+<h3>Da li ste sigurni da želite obrisati @Model.Name kategoriju?</h3>
+
+
+<form asp-controller="Category" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-primary">Brisanje</button>
+    <a asp-controller="Category" asp-action="List">Otkaži</a>
+</form>

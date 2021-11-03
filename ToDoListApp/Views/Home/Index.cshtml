@@ -1,0 +1,36 @@
+﻿@model ToDoViewModel
+
+@{ 
+    string OverDue(ToDo task) => task.OverDue ? "bg-warning" : "";
+}
+
+<div class="row">
+    <div class="col-sm-2">
+        <form asp-controller="Home" asp-action="Filter" method="post">
+            <div class="form-group">
+                <label>Kategorija:</label>
+                <select name="filter" class="form-control" asp-items="@(new SelectList(Model.Categories, "Id", "Name", Model.Filters.CategoryId))">
+                    <option value="all">Svi</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Rok:</label>
+                <select name="filter" class="form-control" asp-items="@(new SelectList(Model.DueFilters, "Key", "Value", Model.Filters.Due))">
+                    <option value="all">Svi</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label>Status:</label>
+                <select name="filter" class="form-control" asp-items="@(new SelectList(Model.Statuses, "Id", "Name", Model.Filters.StatusId))">
+                    <option value="all">Svi</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Filtriraj</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Očisti</a>
+        </form>
+    </div>
+</div>

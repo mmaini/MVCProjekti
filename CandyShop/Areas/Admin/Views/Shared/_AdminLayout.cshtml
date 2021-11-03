@@ -1,9 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string controller = ViewContext.RouteData.Values["controller"].ToString();
+    string action = ViewContext.RouteData.Values["action"].ToString();
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Candy Shop</title>
+    <title>@ViewData["Title"] - Candy Shop - Admin</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -16,16 +22,23 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+
+                <nav class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-link
+                           @(controller=="Home" && action=="Index" ? "active" : "")" asp-controller="Home" asp-action="Index">Admin</a>
+                        <a class="nav-link
+                           @(controller=="Product" ? "active" : "")" asp-controller="Product" asp-action="List">Proizvodi</a>
+                        <a class="nav-link
+                           @(controller=="Category" ? "active" : "")" asp-controller="Category" asp-action="List">Kategorije</a>
+                    </div>
+
+                    <div class="navbar-nav navbar-right">
+                        <a class="nav-link"
+                           asp-area="" asp-controller="Home" asp-action="Index">Stranica</a>
+                    </div>
+
+                </nav>
             </div>
         </nav>
     </header>
@@ -37,7 +50,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - Candy Shop
+            &copy; @DateTime.Now.Year - Candy Shop
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

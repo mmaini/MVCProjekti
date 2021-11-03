@@ -33,15 +33,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityCoreDemo", "Identit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesApp", "MoviesApp\MoviesApp.csproj", "{5F723B5E-EE63-4051-B322-0C79A4C282AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkDemo", "EntityFrameworkDemo\EntityFrameworkDemo.csproj", "{1B2F1923-D5D0-459B-AD1C-52E8D866EFBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkDemo", "EntityFrameworkDemo\EntityFrameworkDemo.csproj", "{1B2F1923-D5D0-459B-AD1C-52E8D866EFBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductShop", "ProductShop\ProductShop.csproj", "{6FB76F98-E622-4DEC-9412-C134452E08D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductShop", "ProductShop\ProductShop.csproj", "{6FB76F98-E622-4DEC-9412-C134452E08D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SongsList", "SongsList\SongsList.csproj", "{3899B5AA-65BD-4A70-9B7F-B1A963218BBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SongsList", "SongsList\SongsList.csproj", "{3899B5AA-65BD-4A70-9B7F-B1A963218BBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutingDemo", "RoutingDemo\RoutingDemo.csproj", "{A562649E-ADCA-4407-8AFE-27001D86C454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoutingDemo", "RoutingDemo\RoutingDemo.csproj", "{A562649E-ADCA-4407-8AFE-27001D86C454}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandyShop", "CandyShop\CandyShop.csproj", "{A8AAA89D-6E03-4443-BE50-3341D3AF752A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CandyShop", "CandyShop\CandyShop.csproj", "{A8AAA89D-6E03-4443-BE50-3341D3AF752A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListApp", "ToDoListApp\ToDoListApp.csproj", "{7E9CDC73-2030-4237-90B0-9E98EAAFA4A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +131,10 @@ Global
 		{A8AAA89D-6E03-4443-BE50-3341D3AF752A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8AAA89D-6E03-4443-BE50-3341D3AF752A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8AAA89D-6E03-4443-BE50-3341D3AF752A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9CDC73-2030-4237-90B0-9E98EAAFA4A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9CDC73-2030-4237-90B0-9E98EAAFA4A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9CDC73-2030-4237-90B0-9E98EAAFA4A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9CDC73-2030-4237-90B0-9E98EAAFA4A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
