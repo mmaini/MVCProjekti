@@ -3,23 +3,21 @@
     ViewData["Title"] = "RegisterForm";
 }
 
-<h1>RegisterForm</h1>
-
 <h5 class="bg-primary text-white text-center m-2 p-2">Registracijska forma</h5>
 
 <form asp-action="RegisterForm" method="post" class="m-2">
     <div asp-validation-summary="All"></div>
     <div class="form-group">
         @*Labela će se prikazati za input (povezano preko asp-for)*@
-        <label asp-for="Name">Vaše ime</label>
+        <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control"/>
     </div>
     <div class="form-group">
-        <label asp-for="Email">Vaš email</label>
+        <label asp-for="Email"></label>
         <input asp-for="Email" class="form-control"/>
     </div>
     <div class="form-group">
-        <label asp-for="Phone">Vaš telefon</label>
+        <label asp-for="Phone"></label>
         <input asp-for="Phone" class="form-control"/>
     </div>
     
