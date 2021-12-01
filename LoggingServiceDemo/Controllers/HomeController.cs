@@ -17,6 +17,7 @@ namespace LoggingServiceDemo.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
+       
             _logger = logger;
             _logger.LogTrace("U konstruktoru sam...");
         }
