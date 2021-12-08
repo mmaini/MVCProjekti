@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MoviesApp.Data.Cart;
 using MoviesApp.Data.Repositories;
-using MoviesApp.Data.Static;
 using MoviesApp.Data.ViewModels;
+using System.Security.Claims;
 
 namespace MoviesApp.Controllers
 {
-    [Authorize(Roles = UserRole.Admin)]
+
     public class OrdersController : Controller
     {
         private readonly IUnitOfWork _uow;
@@ -27,8 +21,10 @@ namespace MoviesApp.Controllers
 
         public IActionResult Index()
         {
+            //za ulogiranog korisnika dohvaćamo id i rolu
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             string userRole = User.FindFirstValue(ClaimTypes.Role);
+            //dohvaćamo sve narudžbe za ulogiranog korisnika
             var orders = _uow.Orders.GetOrdersByUserIdAndRole(userId, userRole);
             return View(orders);
 
@@ -73,7 +69,9 @@ namespace MoviesApp.Controllers
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             string userEmail = User.FindFirstValue(ClaimTypes.Email);
 
+            //pohrani narudžbu
             _uow.Orders.StoreOrder(items, userId, userEmail);
+            //počisti košaricu
             _shoppingCart.ClearShoppingCart();
             _uow.SaveChanges();
 

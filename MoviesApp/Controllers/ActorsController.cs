@@ -11,7 +11,8 @@ using MoviesApp.Models;
 
 namespace MoviesApp.Controllers
 {
-    [Authorize(Roles = UserRole.Admin)] //ukoliko želimo pristupiti akcijama moramo biti autorizirani
+    //ukoliko želimo pristupiti akcijama moramo biti autorizirani
+    [Authorize(Roles = UserRole.Admin)] 
     public class ActorsController : Controller
     {
         private readonly IUnitOfWork _uow;
@@ -21,8 +22,8 @@ namespace MoviesApp.Controllers
             _uow = uow;
         }
 
-
-        [AllowAnonymous] //dopuštamo svima da pristupe
+        //dopuštamo svima da pristupe jer se radi samo o pregledu
+        [AllowAnonymous] 
         public IActionResult Index()
         {
             var data = _uow.Actors.GetAll();
@@ -47,8 +48,9 @@ namespace MoviesApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //dopuštamo svima da pristupe jer se radi samo o pregledu
         [HttpGet]
-        [AllowAnonymous] //dopuštamo svima da pristupe
+        [AllowAnonymous] 
         public IActionResult Details(int id)
         {
             var actorDetails = _uow.Actors.GetById(id);

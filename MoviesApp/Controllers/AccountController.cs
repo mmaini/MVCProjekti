@@ -14,16 +14,16 @@ namespace MoviesApp.Controllers
 {
     public class AccountController : Controller
     {
+        //ugrađeni servisi za rukovanje userima/rolama
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly AppDbContext _context;
+
         private readonly IUnitOfWork _uow;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, AppDbContext context, IUnitOfWork uow)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IUnitOfWork uow)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _context = context;
             _uow = uow;
         }
 
@@ -33,18 +33,11 @@ namespace MoviesApp.Controllers
             return View(response);
         }
 
-        public IActionResult Register()
-        {
-            var response = new RegisterVM();
-            return View(response);
-        }
-
-
-
         [HttpPost]
         public async Task<IActionResult> Login(LoginVM loginVm)
         {
             if (!ModelState.IsValid) return View(loginVm);
+            //ugrađena metoda
             var user = await _userManager.FindByEmailAsync(loginVm.EmailAddress);
             if (user != null)
             {
@@ -64,9 +57,15 @@ namespace MoviesApp.Controllers
 
             TempData["Error"] = "Pogrešan unos. Molimo pokušajte ponovno.";
             return View(loginVm);
-
-
         }
+
+
+        public IActionResult Register()
+        {
+            var response = new RegisterVM();
+            return View(response);
+        }
+
 
         [HttpPost, ActionName("Register")]
         public async Task<IActionResult> RegisterUser(RegisterVM registerVm)
