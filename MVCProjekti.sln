@@ -43,7 +43,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoutingDemo", "RoutingDemo\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CandyShop", "CandyShop\CandyShop.csproj", "{A8AAA89D-6E03-4443-BE50-3341D3AF752A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListApp", "ToDoListApp\ToDoListApp.csproj", "{7E9CDC73-2030-4237-90B0-9E98EAAFA4A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoListApp", "ToDoListApp\ToDoListApp.csproj", "{7E9CDC73-2030-4237-90B0-9E98EAAFA4A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paging", "Paging\Paging.csproj", "{76237640-1667-46E6-A94E-848FF7B65132}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,10 @@ Global
 		{7E9CDC73-2030-4237-90B0-9E98EAAFA4A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E9CDC73-2030-4237-90B0-9E98EAAFA4A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E9CDC73-2030-4237-90B0-9E98EAAFA4A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76237640-1667-46E6-A94E-848FF7B65132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76237640-1667-46E6-A94E-848FF7B65132}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76237640-1667-46E6-A94E-848FF7B65132}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76237640-1667-46E6-A94E-848FF7B65132}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

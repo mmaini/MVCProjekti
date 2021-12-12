@@ -1,0 +1,52 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Mvc.Bootstrap4.Core;
+
+
+
+@model IPagedList<Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Naziv
+            </th>
+            <th>
+                Cijena
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- paging control for navigation to the previous page, next page, etc -->
+@*@Html.PagedListPager(Model, page => Url.Action("Index", "Home", new { page }))*@
+
+@*Uređeni izgled kontrole za paginaciju - potrebno dodati X.PagedList.Mvc.Bootstrap4 nuget paket*@
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), Bootstrap4PagedListRenderOptions.ClassicPlusFirstAndLast)
+
+
